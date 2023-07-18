@@ -5,30 +5,32 @@ namespace CarDealership.Models
 {
     public class Car
     {
-        public string Year { get; set; }
+        public int Year { get; set; }
         public string Make { get; set; }
         public string VehicleModel { get; set; }
-        
-        private static List<Car> _instances = new List<Car> { };
+        public string Color { get; set; }
 
-        public Car(string year, string make, string vehicleModel)
+        private static List<Car> _availableVehicles = new List<Car> { };
+
+        public Car(int year, string make, string vehicleModel, string color)
 
         {
-            
+
             Year = year;
             Make = make;
             VehicleModel = vehicleModel;
-            _instances.Add(this);
+            Color = color;
+            _availableVehicles.Add(this);
         }
 
         public static List<Car> GetAll()
         {
-            return _instances;
+            return _availableVehicles;
         }
 
         public static void ClearAll()
         {
-            _instances.Clear();
+            _availableVehicles.Clear();
         }
     }
 }
